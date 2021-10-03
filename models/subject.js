@@ -8,11 +8,19 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate (models) {
-      // define association here
+      Subject.belongsToMany(models.Student, {
+        through: models.StudentSubjects,
+      });
     }
   }
   Subject.init(
     {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: DataTypes.INTEGER,
+      },
       name: {
         type: DataTypes.STRING,
         allowNull: false,

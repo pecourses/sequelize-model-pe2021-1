@@ -15,7 +15,7 @@ for (let i = 0; i < 100; i++) {
     isMarried: Math.random() > 0.5 ? false : true,
     childrenCount: Math.trunc(Math.random() * 3),
     gender: Math.random() > 0.5 ? 'male' : 'female',
-    GroupId: Math.random() > 0.5 ? 1 : 2,
+    groupId: Math.random() > 0.5 ? 1 : 2,
     createdAt: new Date(),
     updatedAt: new Date(),
   });

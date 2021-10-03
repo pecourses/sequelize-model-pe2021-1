@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate (models) {
       Group.hasMany(models.Student, {
+        foreignKey: 'groupId',
         onDelete: 'RESTRICT',
         onUpdate: 'CASCADE',
       });
