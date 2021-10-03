@@ -1,10 +1,10 @@
-const { Student, Group, sequelize } = require('./models');
+const { Student, Group, Subject, sequelize } = require('./models');
 const { Op } = require('sequelize');
 const student = require('./models/student');
 
 (async function () {
   try {
-    await sequelize.sync({ force: true });
+    // await sequelize.sync({ force: true });
 
     const newStudent = {
       firstName: 'Stud1',
@@ -205,7 +205,17 @@ const student = require('./models/student');
     //   raw: true,
     // });
 
-    // console.log(`foundStuds`, foundStuds);
+    // const [stud1] = await Student.findAll({ where: { id: 1 } });
+
+    // const subjsOsStud1 = await stud1.getSubjects();
+
+    // console.log(`subjsOsStud1`, subjsOsStud1);
+
+    const [s1] = await Subject.findAll({ where: { id: 1 } });
+
+    const studsSubj1 = await s1.getStudents();
+
+    console.log(`studsSubj1`, studsSubj1);
   } catch (err) {
     console.log(`err`, err);
   }
